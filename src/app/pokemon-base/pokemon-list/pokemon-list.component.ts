@@ -1,13 +1,52 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Pokemon } from '../../models/pokemon';
 
 @Component({
-  selector: 'app-pokemon-list',
-  standalone: true,
-  imports: [CommonModule],
+  selector: 'pokemon-list',
   templateUrl: './pokemon-list.component.html',
-  styleUrl: './pokemon-list.component.css'
+  styleUrls: ['./pokemon-list.component.css']
 })
-export class PokemonListComponent {
+export class PokemonListComponent implements OnInit {
+  pokemons: Pokemon[] = [
+    {
+      id: 1,
+      name: 'pikachu',
+      type: 'electric',
+      isCool: false,
+      isStylish: false,
+    },
+    {
+      id: 2,
+      name: 'overgrow',
+      type: 'fire',
+      isCool: true,
+      isStylish: true,
+    },
+    {
+      id: 3,
+      name: 'chlorophyll',
+      type: 'water',
+      isCool: false,
+      isStylish: false,
+    },
+    {
+      id: 4,
+      name: 'crystal',
+      type: 'yellow',
+      isCool: true,
+      isStylish: true,
+    },
+    {
+      id: 5,
+      name: 'emerald',
+      type: 'sapphire',
+      isCool: true,
+      isStylish: true,
+    },
+  ];
+  constructor() { }
+
+  ngOnInit() {
+  }
 
 }

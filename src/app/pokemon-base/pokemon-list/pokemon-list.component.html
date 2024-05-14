@@ -1,1 +1,12 @@
-<p>pokemon-list works!</p>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Index</th>
+  </thead>
+  <tbody>
+    <pokemon-detail
+      *ngFor="let pokemon of pokemons"
+      [detail]="pokemon"
+    ></pokemon-detail>
+  </tbody>
+</table>
