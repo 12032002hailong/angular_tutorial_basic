@@ -49,4 +49,10 @@ export class PokemonListComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleRemove(event: Pokemon) {
+    this.pokemons = this.pokemons.filter((pokemon: Pokemon) => {
+      return pokemon.id !== event.id;
+    })
+  }
+
 }
