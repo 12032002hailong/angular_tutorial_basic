@@ -6,6 +6,7 @@
       type="radio"
       name="isCool"
       [value]="true"
+      #pokemonName="ngModel"
       [ngModel]="pokemon.isCool"
     />Pokemon is cool?
   </label>
@@ -27,4 +28,8 @@
   </label>
 </form>
 <div>MODEL: {{ pokemon | json }}</div>
-<div>FORM:{{ form.value | json }}</div>
+<div>FORM: {{ form.value | json }}</div>
+<div>
+  ERROR:
+  <p *ngIf="!pokemonName.pristine">Not Pritine anymore it is dirty!</p>
+</div>
