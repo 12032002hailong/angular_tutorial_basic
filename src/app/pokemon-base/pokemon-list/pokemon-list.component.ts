@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../models/pokemon';
+import { PokemonService } from '../../service/pokemon.service';
 
 @Component({
   selector: 'pokemon-list',
@@ -7,52 +8,23 @@ import { Pokemon } from '../../models/pokemon';
   styleUrls: ['./pokemon-list.component.css']
 })
 export class PokemonListComponent implements OnInit {
-  pokemons: Pokemon[] = [
-    {
-      id: 1,
-      name: 'pikachu',
-      type: 'electric',
-      isCool: false,
-      isStylish: false,
-    },
-    {
-      id: 2,
-      name: 'overgrow',
-      type: 'fire',
-      isCool: true,
-      isStylish: true,
-    },
-    {
-      id: 3,
-      name: 'chlorophyll',
-      type: 'water',
-      isCool: false,
-      isStylish: false,
-    },
-    {
-      id: 4,
-      name: 'crystal',
-      type: 'yellow',
-      isCool: true,
-      isStylish: true,
-    },
-    {
-      id: 5,
-      name: 'emerald',
-      type: 'sapphire',
-      isCool: true,
-      isStylish: true,
-    },
-  ];
-  constructor() { }
+  pokemons!: Pokemon[];
 
-  ngOnInit() {
-  }
+  constructor(private pokemonService: PokemonService) { }
+
+
 
   handleRemove(event: Pokemon) {
     this.pokemons = this.pokemons.filter((pokemon: Pokemon) => {
       return pokemon.id !== event.id;
     })
+  }
+
+  ngOnInit() {
+    this.pokemonService.getPokemon().subscribe((data: Pokemon[]) => {
+      console.log(data);
+      this.pokemons = data;
+    });
   }
 
 }
