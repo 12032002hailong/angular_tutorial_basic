@@ -18,5 +18,13 @@
       (ngModelChange)="toggleIsCool($event)"
     />pokemon is not cool
   </label>
+  <label for="">
+    <input
+      type="checkbox"
+      name="acceptTerms"
+      [(ngModel)]="pokemon.acceptTerms"
+    />
+  </label>
 </form>
-MODEL: {{ pokemon | json }} FORM:{{ form.value | json }}
+<div>MODEL: {{ pokemon | json }}</div>
+<div>FORM:{{ form.value | json }}</div>
