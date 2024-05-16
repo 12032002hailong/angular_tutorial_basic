@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../models/pokemon';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Pokemon, PokemonType } from '../models/pokemon';
 import { PokemonService } from '../service/pokemon.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -13,6 +13,14 @@ import { CommonModule } from '@angular/common';
 })
 export class PokemonTemplateFormComponent implements OnInit {
   pokemon!: Pokemon;
+  pokemonType: PokemonType[] = [
+    { key: 0, value: 'Fire' },
+    {
+      key: 1,
+      value: 'Water',
+    },
+  ];
+
   constructor(private pokemonService: PokemonService) {}
 
   toggleIsCool(object: any) {
