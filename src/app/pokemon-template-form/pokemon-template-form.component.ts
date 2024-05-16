@@ -32,4 +32,7 @@ export class PokemonTemplateFormComponent implements OnInit {
       this.pokemon = data;
     });
   }
+  handleSubmit(object: any) {
+    console.log(object.value);
+  }
 }
